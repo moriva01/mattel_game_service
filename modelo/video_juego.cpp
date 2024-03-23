@@ -1,4 +1,4 @@
-//clase padre video juegos
+// clase padre video juegos
 
 #include <iostream>
 
