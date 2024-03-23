@@ -2,7 +2,7 @@
 #include <vector>
 #include <ctime> // para el tiempo de juego
 
-class buscaminas : public video_juego
+class ahorcado : public video_juego
 {
 private:
     string nombre_jugador;
@@ -10,7 +10,7 @@ private:
     int partidas_ganadas;
 
 public:
-    buscaminas() {}
+    ahorcado() {}
 
     // ----------------------------------------------- setters
     void setNombreJugador(const string &nombre)
@@ -64,27 +64,25 @@ public:
 
     void jugar_ahorcado(int &partidasGanadas, clock_t &tiempoTotalJugado)
     {
-    
+
         vector<string> palabras = {"perro", "gato", "pollo", "tigre", "cocodrilo"};
 
         while (true)
         {
-    
+
             srand(static_cast<unsigned int>(time(0)));
             int indiceAleatorio = rand() % palabras.size();
             string palabraSeleccionada = palabras[indiceAleatorio];
 
-        
             vector<bool> letrasAdivinadas(palabraSeleccionada.length(), false);
 
-            int intentosRestantes = 7; 
+            int intentosRestantes = 7;
             bool ganado = false;
 
             cout << "¡Bienvenido al juego del ahorcado!" << endl;
 
-            clock_t inicioPartida = clock(); 
+            clock_t inicioPartida = clock();
 
-          
             while (intentosRestantes > 0 && !ganado)
             {
                 cout << "Palabra a adivinar: ";
