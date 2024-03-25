@@ -1,12 +1,12 @@
 // aqui se haran los metodos que unen la clase main con las clases del modelo
 
-#include "../modelo/ahorcado.cpp"
+#include "../modelo/ahorcado.cpp"// hereda todo lo del ahorcado
 
-vector<video_juego> lista_juegos;
+vector<video_juego> lista_juegos;//lista de juegos
 
-void ingresar_nuevos_juegos()
+void ingresar_nuevos_juegos()// metodo para ingresar juegos a la lista
 {
-    video_juego aux;
+    video_juego aux;//crea objeto auxiliar
     string nombre;
     int cant_jugadores;
     int categoria;
@@ -15,12 +15,12 @@ void ingresar_nuevos_juegos()
     int plataforma;
 
     cout << "Digite el nombre del video juego: " << endl;
-    cin >> nombre;
+    cin >> nombre;//pide los datos por entrada del teclado
 
     for (video_juego p : lista_juegos) // recorre la lista
     {
 
-        if (nombre == p.getNombre()) // mira si el documento ya esta registrado
+        if (nombre == p.getNombre()) // mira si el juego ya esta registrado
         {
             cout << "el juego ya se encuentra registrado" << endl;
             break;
@@ -34,7 +34,7 @@ void ingresar_nuevos_juegos()
          << "1- arcade \n 2- aventura \n 3- puzzle \n 4- estrategia \n 5- disparos" << endl;
     cin >> categoria;
 
-    switch (categoria)
+    switch (categoria)//´pone la categoria -- solo usaremos 5 categorias por ahora
     {
     case 1:
         aux.setCategoria("arcade");
@@ -53,7 +53,7 @@ void ingresar_nuevos_juegos()
         break;
 
     default:
-        cout << "opcion no valida" << endl;
+        cout << "categoria no disponible, pongase en contacto con el adminsitrador para que la agregue" << endl;// si la categoria no esta disponible
         break;
     }
 
@@ -66,7 +66,7 @@ void ingresar_nuevos_juegos()
     cout << "Digite la plataforma en la que se almacena el video juego: " << endl;
     cout << "1- steam \n 2- Ea play \n 3- Ubisoft \n 4- Epic games \n 5- Gforece one" << endl;
     cin >> plataforma;
-    switch (plataforma)
+    switch (plataforma)// pone la plataforma -- solo usaremos 5 plataformas por ahora
     {
     case 1:
         aux.setPlataforma("Steam");
@@ -85,14 +85,14 @@ void ingresar_nuevos_juegos()
         break;
 
     default:
-        cout << "opcion no valida" << endl;
+        cout << "plataforma no disponible, pongase en contacto con el adminsitrador para que la agregue" << endl;// si la plataforma no esta disponible
         break;
     }
 
-    lista_juegos.push_back(aux);
+    lista_juegos.push_back(aux);//agrega el juego a la lista
 }
 
-void mostrar_juegos()
+void mostrar_juegos()// metodo mostrar los juegos que hay en la lista
 {
 
     int eleccion, eleccion2, eleccion3;
@@ -103,7 +103,7 @@ void mostrar_juegos()
     switch (eleccion)
     {
     case 1:
-        ingresar_nuevos_juegos();
+        ingresar_nuevos_juegos();// ingresar los juegos
         break;
 
     case 2:
@@ -113,7 +113,7 @@ void mostrar_juegos()
         cin >> eleccion2;
         switch (eleccion2)
         {
-        case 1:
+        case 1:// imprimir toda la lista
 
             cout << "Nombre ----- # jugadores ----- categoria ----- desarrollador ----- año lanzamiento ----- plataforma" << endl;
             for (video_juego p : lista_juegos)
@@ -124,7 +124,7 @@ void mostrar_juegos()
 
             break;
 
-        case 2:
+        case 2: //por si se quiere filtrar por categoria
             cout << "1- arcade" << endl
                  << "2- aventura" << endl
                  << "3- puzzle" << endl
@@ -232,14 +232,14 @@ void mostrar_juegos()
     }
 }
 
-void jugar_ahorcado(ahorcado bcs)
+void jugar_ahorcado(ahorcado bcs)// metodo para jugar al ahorcado
 {
-    string nombreJugador;
+    string nombreJugador;//pide el nombre del jugador
     int eleccion2;
     while (true)
     {
-        int partidas = bcs.getPartidasGanadas();
-        clock_t tiempo = bcs.getTiempoJugado();
+        int partidas = bcs.getPartidasGanadas();//partidas gabadas
+        clock_t tiempo = bcs.getTiempoJugado();//tiempo jugado
         string aux;
         cout << "Top Ganador: " << bcs.getNombreJugador() << endl;
         cout << "Partidas ganadas: " << partidas << endl;
@@ -255,10 +255,10 @@ void jugar_ahorcado(ahorcado bcs)
         {
             cout << "Ingrese su nombre: ";
             cin >> nombreJugador;
-            bcs.setNombreJugador(nombreJugador);
-            bcs.jugar_ahorcado(partidas, tiempo);
-            bcs.setPartidasGanadas(partidas);
-            bcs.setTiempoJugado(tiempo);
+            bcs.setNombreJugador(nombreJugador);//actualiza nombre del jugador
+            bcs.jugar_ahorcado(partidas, tiempo);//jugar el juego
+            bcs.setPartidasGanadas(partidas);// actualiza las partidas ganadas
+            bcs.setTiempoJugado(tiempo);// actualiza el tiempo jugado
             break;
         }
         case 2:
@@ -266,7 +266,7 @@ void jugar_ahorcado(ahorcado bcs)
         default:
             break;
         }
-        if (eleccion2 == 2)
+        if (eleccion2 == 2)// cierra el juego
             break;
     }
 }

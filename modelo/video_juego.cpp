@@ -1,25 +1,25 @@
 // clase padre video juegos
 
-#include <iostream>
+#include <iostream>// entrada y salida de datos por teclado
 
-using namespace std;
+using namespace std;//erspacio de trabajo para c++
 
-class video_juego
+class video_juego//clase video juegos
 {
 
 private:
-    string nombre;
+    string nombre;// atributos privados de la clase
     int cant_jugadores;
-    string categoria; // parametrizar las opciones que puede escoger el usuario
+    string categoria; 
     string desarrollador;
     int anio_lanzamiento;
-    string plataforma; // parametrizar las opciones que puede escoger el usuario
+    string plataforma; 
 
 public:
-    video_juego() {}
+    video_juego() {}//constructor vacio de la clase
 
     video_juego(string n, int cj, string cat, string dev, int anio, string plat) : nombre(n), cant_jugadores(cj), categoria(cat), desarrollador(dev),
-                                                                                   anio_lanzamiento(anio), plataforma(plat) {}
+                                                                                   anio_lanzamiento(anio), plataforma(plat) {}//constructor con parametros de la clase
 
     // ---------------------------------------------------------------------- setters
     void setNombre(const string &n)
