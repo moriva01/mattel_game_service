@@ -92,6 +92,146 @@ void ingresar_nuevos_juegos()
     lista_juegos.push_back(aux);
 }
 
+void mostrar_juegos()
+{
+
+    int eleccion, eleccion2, eleccion3;
+    cout << "1- ingresar un juego" << endl
+         << "2- ver lista de juegos" << endl
+         << "3- salir" << endl;
+    cin >> eleccion;
+    switch (eleccion)
+    {
+    case 1:
+        ingresar_nuevos_juegos();
+        break;
+
+    case 2:
+        cout << "1- ver lista completa de juegos" << endl;
+        cout << "2- ver lista por categorias" << endl;
+        cout << "3- salir" << endl;
+        cin >> eleccion2;
+        switch (eleccion2)
+        {
+        case 1:
+
+            cout << "Nombre ----- # jugadores ----- categoria ----- desarrollador ----- año lanzamiento ----- plataforma" << endl;
+            for (video_juego p : lista_juegos)
+            {
+
+                cout << p.getNombre() << "-----" << p.getCantJugadores() << "-----" << p.getCategoria() << "-----" << p.getDesarrollador() << "-----" << p.getAnioLanzamiento() << "-----" << p.getPlataforma() << endl;
+            }
+
+            break;
+
+        case 2:
+            cout << "1- arcade" << endl
+                 << "2- aventura" << endl
+                 << "3- puzzle" << endl
+                 << "4- estrategia" << endl
+                 << "5- disparos" << endl
+                 << "6- salir" << endl;
+
+            cin >> eleccion3;
+
+            switch (eleccion3)
+            {
+            case 1:
+                cout << "Nombre ----- # jugadores ----- categoria ----- desarrollador ----- año lanzamiento ----- plataforma" << endl;
+                for (video_juego p : lista_juegos)
+                {
+                    if (p.getCategoria() == "arcade")
+                    {
+
+                        cout << p.getNombre() << "-----" << p.getCantJugadores() << "-----" << p.getCategoria() << "-----" << p.getDesarrollador() << "-----" << p.getAnioLanzamiento() << "-----" << p.getPlataforma() << endl;
+                    }
+                }
+
+                break;
+
+            case 2:
+
+                cout << "Nombre ----- # jugadores ----- categoria ----- desarrollador ----- año lanzamiento ----- plataforma" << endl;
+                for (video_juego p : lista_juegos)
+                {
+                    if (p.getCategoria() == "aventura")
+                    {
+
+                        cout << p.getNombre() << "-----" << p.getCantJugadores() << "-----" << p.getCategoria() << "-----" << p.getDesarrollador() << "-----" << p.getAnioLanzamiento() << "-----" << p.getPlataforma() << endl;
+                    }
+                }
+
+                break;
+
+            case 3:
+
+                cout << "Nombre ----- # jugadores ----- categoria ----- desarrollador ----- año lanzamiento ----- plataforma" << endl;
+                for (video_juego p : lista_juegos)
+                {
+                    if (p.getCategoria() == "puzzle")
+                    {
+
+                        cout << p.getNombre() << "-----" << p.getCantJugadores() << "-----" << p.getCategoria() << "-----" << p.getDesarrollador() << "-----" << p.getAnioLanzamiento() << "-----" << p.getPlataforma() << endl;
+                    }
+                }
+
+                break;
+
+            case 4:
+
+                cout << "Nombre ----- # jugadores ----- categoria ----- desarrollador ----- año lanzamiento ----- plataforma" << endl;
+                for (video_juego p : lista_juegos)
+                {
+                    if (p.getCategoria() == "estrategia")
+                    {
+
+                        cout << p.getNombre() << "-----" << p.getCantJugadores() << "-----" << p.getCategoria() << "-----" << p.getDesarrollador() << "-----" << p.getAnioLanzamiento() << "-----" << p.getPlataforma() << endl;
+                    }
+                }
+
+                break;
+
+            case 5:
+
+                cout << "Nombre ----- # jugadores ----- categoria ----- desarrollador ----- año lanzamiento ----- plataforma" << endl;
+                for (video_juego p : lista_juegos)
+                {
+                    if (p.getCategoria() == "disparos")
+                    {
+
+                        cout << p.getNombre() << "-----" << p.getCantJugadores() << "-----" << p.getCategoria() << "-----" << p.getDesarrollador() << "-----" << p.getAnioLanzamiento() << "-----" << p.getPlataforma() << endl;
+                    }
+                }
+
+                break;
+
+            case 6:
+                return;
+                break;
+
+            default:
+                cout << "opcion no valida" << endl;
+                break;
+            }
+            break;
+        case 3:
+            return;
+            break;
+        default:
+            cout << "opcion no valida" << endl;
+            break;
+        }
+
+        break;
+    case 3:
+        return;
+        break;
+    default:
+        cout << "opcion no valida" << endl;
+        break;
+    }
+}
+
 void jugar_ahorcado(ahorcado bcs)
 {
     string nombreJugador;

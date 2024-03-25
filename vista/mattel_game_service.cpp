@@ -29,7 +29,7 @@ int main()
         switch (eleccion)
         {
         case 1:
-
+            mostrar_juegos();
             break;
         case 2:
             jugar_ahorcado(bcs);
