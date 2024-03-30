@@ -18,6 +18,9 @@ private:
 public:
     video_juego() {}
 
+     video_juego(string n, int cj, string cat, string dev, int anio, string plat) : nombre(n), cant_jugadores(cj), categoria(cat), desarrollador(dev),
+                                                                                   anio_lanzamiento(anio), plataforma(plat) {}
+
     // ---------------------------------------------------------------------- setters
     void setNombre(const string &n)
     {
