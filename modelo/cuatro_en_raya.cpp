@@ -1,5 +1,5 @@
-#include <iostream> // 
-#include <ctime> //
+#include <iostream> // lbreria para imprimir 
+#include <ctime> // libreria para el contador
 #include "video_juego.cpp"//importar la clase padre
 
 using namespace std;
@@ -17,6 +17,9 @@ private:
         {'#', '#', '#', '#', '#', '#', '#', '#', '#'},
         {' ', '1', '2', '3', '4', '5', '6', '7', ' '}
     };
+    clock_t tiempoTotalJugado; // variable tiempo total jugado
+    int totalwins = win_x; // variable correspondiente a partidas ganadas por el jugador
+    double tiempojuego; // variable contador total de juego (en segundos)
     int win_x, win_o; // contador victorias 
     char turno; // variable para identificar si juega el jugador (x) o (O)
     int colT, colD; // Variables para identificar la posicion en la que se coloca la ficha 
@@ -24,6 +27,27 @@ private:
     int cont = 0; // Variable para contar el número de fichas del mismo jugador en una línea
     int indice_f, indice_c; // Vaibles para representar los indices de las filas y las columnas
     bool listo = false; // Variable para controlar bucles xd
+    
+    // ----------------------------------------------- setters
+
+    void setTotalins (int partidas) {
+        
+        totalwins = partidas;
+    }
+    void setTiempojuego (clock_t tiempo){
+        tiempojuego = tiempo;
+    }
+    
+    // ------------------------------------------------- getters
+
+    int getTotalwins () const
+    {
+        return totalwins;
+    }
+    clock_t getTiempojuego() const
+    {
+        return tiempojuego;
+    }
 
    // funcion para limpiar la terminal (para comodidad basicamente)
     void limpiarPantalla() {
@@ -226,16 +250,23 @@ public:
     }
 	// funcion para ejecutar el juego 
     void jugarPartida() {
+        clock_t inicioPartida = clock();
+        tiempoTotalJugado = 0; // para reiniciar el contador de la partida 
         limpiarPantalla();
         mostrarTablero();
         
         if (revisarHorizontal(indD, colD, turno) || revisarVertical(indD, colD, turno) ||
             revisarDiagonal(indD, colD, turno) || revisarDiagonalInvertida(indD, colD, turno)) {
-            cout << "\n\tQuiere jugar otra vez si(1)/no(0)";
+            clock_t finPartida = clock();
+            double tiempoPartida = static_cast<double>(finPartida - inicioPartida) / CLOCKS_PER_SEC;
+            tiempojuego += finPartida - inicioPartida; // toma el tiempo de la partida y lo suma a su total
+            tiempoTotalJugado += finPartida - inicioPartida; // toma el tiempo de la partida
+            mostrarResultados();
+            cout << "\n\tQuiere jugar otra vez si(1)/no(0): "; //inicio para ciclo de volver a jugar
             int eleccion;
             cin >> eleccion;
             if(eleccion == 1){
-				reiniciarJuego();
+                reiniciarJuego();
 			}else{ 
 				return;
 			}
@@ -261,19 +292,14 @@ public:
 	void reiniciarJuego() {
     limpiarTablero(); 
     cont = 0; 
-	void jugarPartida();
+	jugarPartida();
    }
    // Funcion para mostar resultado
    void mostrarResultados() {
+        cout << "\n\tTiempo de partida jugado: " << tiempoTotalJugado << " segundos" << endl;
+        cout << "\n\t Tiempo jugado: "<< tiempojuego << "segundos" << endl;
         cout << "\n\tVictorias de X: " << win_x << endl;
         cout << "\tVictorias de O: " << win_o << endl;
     }
 };   
 
-int main() {
-	//ejecutable de la clase
-    CuatroEnLinea juego;
-    juego.jugarPartida();
-	juego.mostrarResultados();
-    return 0;
-}
