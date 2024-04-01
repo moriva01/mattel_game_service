@@ -19,8 +19,8 @@ private:
     };
     string nombre_jp;
     clock_t tiempoTotalJugado; // variable tiempo total jugado
-    int totalwins = win_x; // variable correspondiente a partidas ganadas por el jugador
-    double tiempojuego; // variable contador total de juego (en segundos)
+    int total_wins = win_x; // variable correspondiente a partidas ganadas por el jugador
+    double tiempo_juego; // variable contador total de juego (en segundos)
     int win_x, win_o; // contador victorias 
     char turno; // variable para identificar si juega el jugador (x) o (O)
     int colT, colD; // Variables para identificar la posicion en la que se coloca la ficha 
@@ -36,11 +36,11 @@ private:
         nombre_jugador = nombre;
     }
 
-    void setTotalins (int partidas) {
+    void setTotalWins (int partidas) {
         
         totalwins = partidas;
     }
-    void setTiempojuego (clock_t tiempo){
+    void setTiempoJuego (clock_t tiempo){
         tiempojuego = tiempo;
     }
     
@@ -51,7 +51,7 @@ private:
         return nombre_jugador;
     }
 
-    int getTotalwins () const
+    int getTotalWins () const
     {
         return totalwins;
     }
