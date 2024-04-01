@@ -17,6 +17,7 @@ private:
         {'#', '#', '#', '#', '#', '#', '#', '#', '#'},
         {' ', '1', '2', '3', '4', '5', '6', '7', ' '}
     };
+    string nombre_jp;
     clock_t tiempoTotalJugado; // variable tiempo total jugado
     int totalwins = win_x; // variable correspondiente a partidas ganadas por el jugador
     double tiempojuego; // variable contador total de juego (en segundos)
@@ -30,6 +31,11 @@ private:
     
     // ----------------------------------------------- setters
 
+    void setNombreJp(const string &nombre)
+    {
+        nombre_jugador = nombre;
+    }
+
     void setTotalins (int partidas) {
         
         totalwins = partidas;
@@ -39,6 +45,11 @@ private:
     }
     
     // ------------------------------------------------- getters
+
+   string getNombreJp() const
+    {
+        return nombre_jugador;
+    }
 
     int getTotalwins () const
     {
