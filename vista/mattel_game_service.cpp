@@ -57,7 +57,7 @@ int main() // clase main del sistema
             break;
 
         case 4:
-            plataforma();
+            plataforma();//organizar la lista y mostrarla por plataforma
             break;
 
         case 5:
