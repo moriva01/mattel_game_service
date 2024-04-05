@@ -53,7 +53,7 @@ int main() // clase main del sistema
             jugar_ahorcado(bcs); // juego del ahorcado
             break;
         case 3:
-            cambiar_categoria();
+            cambiar_categoria();// cambiar categoria del juego
             break;
 
         case 4:
