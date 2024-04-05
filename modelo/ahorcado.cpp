@@ -79,7 +79,7 @@ public:
             int intentosRestantes = 7;//deja un maximo de 7 intentos de adivinar
             bool ganado = false;
 
-            cout << "¡Bienvenido al juego del ahorcado!" << endl;
+            cout << "------------------ Bienvenido al juego " << endl;
 
             clock_t inicioPartida = clock();//inicia a contar el tiempo de la partida
 
@@ -110,7 +110,7 @@ public:
                 }
                 else
                 {
-                    cout << "¡Correcto!" << endl;//si lo es
+                    cout << "Correcto" << endl;//si lo es
                 }
 
                 
@@ -131,18 +131,18 @@ public:
                 clock_t finPartida = clock(); //hora de inicio de la partidad                                                            
                 double tiempoPartida = static_cast<double>(finPartida - inicioPartida) / CLOCKS_PER_SEC; //tiempo total de la partida
                 tiempoTotalJugado += finPartida - inicioPartida;  //acumula tiempo total del juego                                       
-                cout << "¡Felicidades! Has ganado. La palabra era: " << palabraSeleccionada << endl;
+                cout << "Felicidades Has ganado, La palabra era: " << palabraSeleccionada << endl;
                 cout << "Tiempo de partida: " << tiempoPartida << " segundos" << endl;
                 ++partidasGanadas; //cuenta las partidas
             }
             else
             {
-                cout << "¡Has perdido! La palabra era: " << palabraSeleccionada << endl;
+                cout << "Has perdido La palabra era: " << palabraSeleccionada << endl;
             }
 
            
             char respuesta;
-            cout << "¿Deseas jugar de nuevo? (s/n): ";// si quiere volver a jugar
+            cout << "Deseas jugar de nuevo? (s/n): ";// si quiere volver a jugar
             cin >> respuesta;
             if (respuesta != 's' && respuesta != 'S')
             {
