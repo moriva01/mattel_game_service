@@ -1,6 +1,7 @@
 // clase padre video juegos
 
 #include <iostream>// entrada y salida de datos por teclado
+#include <algorithm>//usar shot para organizar cosas
 
 using namespace std;//erspacio de trabajo para c++
 

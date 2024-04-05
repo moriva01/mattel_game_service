@@ -36,7 +36,9 @@ int main() // clase main del sistema
         cout << " -- Bienvenido al sistema de juegos y clasificacion de mattel, que deseas hacer hoy ? ----" << endl;
         cout << "-- 1- Lista de juegos                                      -------------------------------" << endl;
         cout << "-- 2- Jugar ahorcado                                               -----------------------" << endl;
-        cout << "-- 3- Salir                                                        -----------------------" << endl;
+        cout << "-- 3- categorias de juegos                                         -----------------------" << endl;
+        cout << "-- 4- plataformas de juegos                                        -----------------------" << endl;
+        cout << "-- 5- Salir                                                        -----------------------" << endl;
         cout << "------------------------------------------------------------------------------------------" << endl;
 
         cin >> eleccion;
@@ -51,6 +53,14 @@ int main() // clase main del sistema
             jugar_ahorcado(bcs); // juego del ahorcado
             break;
         case 3:
+            cambiar_categoria();
+            break;
+
+        case 4:
+            plataforma();
+            break;
+
+        case 5:
             return 0; // salir del sistema
             break;
         default: // si la opcion no es valida

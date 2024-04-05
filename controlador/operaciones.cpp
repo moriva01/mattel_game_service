@@ -34,7 +34,7 @@ void ingresar_nuevos_juegos() // metodo para ingresar juegos a la lista
          << "1- arcade \n 2- aventura \n 3- puzzle \n 4- estrategia \n 5- disparos" << endl;
     cin >> categoria;
 
-    switch (categoria) // ´pone la categoria -- solo usaremos 5 categorias por ahora
+    switch (categoria) // pone la categoria -- solo usaremos 5 categorias por ahora
     {
     case 1:
         aux.setCategoria("arcade");
@@ -245,12 +245,12 @@ void jugar_ahorcado(ahorcado bcs) // metodo para jugar al ahorcado
         int partidas = bcs.getPartidasGanadas(); // partidas gabadas
         clock_t tiempo = bcs.getTiempoJugado();  // tiempo jugado
         string aux;
-          cout << "------------------------- Juego del ahorcado ------------------------------" << endl;
+        cout << "------------------------- Juego del ahorcado ------------------------------" << endl;
         cout << "Top Ganador: " << bcs.getNombreJugador() << endl;
         cout << "Partidas ganadas: " << partidas << endl;
         cout << "Tiempo total jugado: " << static_cast<double>(tiempo) / CLOCKS_PER_SEC << " segundos" << endl;
         cout << "------------------------------------------------------------------------------------------" << endl;
-         cout << "-------------- Que deseas hacer hoy?" << endl;
+        cout << "-------------- Que deseas hacer hoy?" << endl;
         cout << "1- Jugar juego" << endl;
         cout << "2- Salir" << endl;
         cin >> eleccion2;
@@ -274,5 +274,129 @@ void jugar_ahorcado(ahorcado bcs) // metodo para jugar al ahorcado
         }
         if (eleccion2 == 2) // cierra el juego
             break;
+    }
+}
+
+bool comparar_nombres(const video_juego &juego1, const video_juego &juego2) // busca el nombre dentro de la lista
+{
+    return juego1.getNombre() < juego2.getNombre();
+}
+
+bool comparar_plataforma(const video_juego &juego1, const video_juego &juego2) // busca el nombre dentro de la lista
+{
+    return juego1.getPlataforma() < juego2.getPlataforma();
+}
+
+int busqueda_binaria(const vector<video_juego> &lista, const string &nombre) // metodo de busqueda binaria
+{
+    int inicio = 0;
+    int fin = lista.size() - 1;
+
+    while (inicio <= fin)
+    {
+        int medio = inicio + (fin - inicio) / 2;
+
+        // Si encontramos el nombre
+        if (lista[medio].getNombre() == nombre)
+        {
+            return medio;
+        }
+        // Si el nombre está en la mitad inferior
+        else if (lista[medio].getNombre() < nombre)
+        {
+            inicio = medio + 1;
+        }
+        // Si el nombre está en la mitad superior
+        else
+        {
+            fin = medio - 1;
+        }
+    }
+
+    // Si no se encuentra el nombre
+    return -1;
+}
+
+void cambiar_categoria()
+{
+    string aux;
+    int categoria;
+
+    cout << "bienvenido al sistema para reasignar categorias; a continuacion va a ver la lista de juegos y su actual categoria;" << endl;
+
+    cout << "--------------------------------------------------------------------------------------------" << endl;
+    cout << "----- Nombre:       ----------- Categoria: " << endl;
+
+    for (video_juego p : lista_juegos)
+    {
+
+        cout << p.getNombre() << "-----" << p.getCategoria() << "-----" << endl;
+    }
+
+    cout << "--------------------------------------------------------------------------------------------" << endl;
+
+    cout << "por favor digite el nombre del juego para el que quiere cambiar la categoria: " << endl;
+    cin >> aux;
+
+    int indice = busqueda_binaria(lista_juegos, aux); // guarda el incide del nombre (del objeto pues)
+
+    if (indice != -1)
+    {
+
+        cout << "Digite la categoria del video juego: \n"
+             << "1- arcade \n 2- aventura \n 3- puzzle \n 4- estrategia \n 5- disparos" << endl;
+        cin >> categoria;
+
+        switch (categoria) // pone la categoria -- solo usaremos 5 categorias por ahora
+        {
+        case 1:
+            lista_juegos[indice].setCategoria("arcade");
+            break;
+        case 2:
+            lista_juegos[indice].setCategoria("aventura");
+            break;
+        case 3:
+            lista_juegos[indice].setCategoria("puzzle"); // cambia la categoria del objeto en el indice
+            break;
+        case 4:
+            lista_juegos[indice].setCategoria("estrategia");
+            break;
+        case 5:
+            lista_juegos[indice].setCategoria("disparos");
+            break;
+
+        default:
+            cout << "categoria no disponible, pongase en contacto con el adminsitrador para que la agregue" << endl; // si la categoria no esta disponible
+            break;
+        }
+
+        cout << "categoria actualizada correctamente" << endl;
+    }
+    else
+    {
+        cout << "el juego no se encontró en la lista." << endl;
+    }
+}
+
+void plataforma()
+{
+
+    sort(lista_juegos.begin(), lista_juegos.end(), comparar_plataforma);
+
+    string plataforma_actual = "";
+
+    cout << "Nombre ----- # jugadores ----- categoria ----- desarrollador ----- año lanzamiento ----- plataforma" << endl;
+    for (video_juego p : lista_juegos)
+    {
+        // Si cambiamos de plataforma, imprimimos el subtítulo
+        if (p.getPlataforma() != plataforma_actual)
+        {
+            plataforma_actual = p.getPlataforma();
+            cout << "--------------------------------------------------------------------------------------------" << endl;
+            cout << "Plataforma: " << plataforma_actual << endl;
+            cout << "--------------------------------------------------------------------------------------------" << endl;
+        }
+
+        cout << p.getNombre() << "-----" << p.getCantJugadores() << "-----" << p.getCategoria() << "-----" << p.getDesarrollador() << "-----" << p.getAnioLanzamiento() << "-----" << p.getPlataforma() << endl;
     }
 }
