@@ -13,6 +13,21 @@ int main() // clase main del sistema
     bcs.setPartidasGanadas(0);
     bcs.setTiempoJugado(0);
 
+    //---------------------------------------------------------------------------------------------------------------------------------------- branch deivy
+
+    CuatroEnLinea ej;
+
+    ej.setNombre("Cuatro En Raya");
+    ej.setCantJugadores(2);
+    ej.setCategoria("Estrategia");
+    ej.setDesarrollador("N/a");
+    ej.setAnioLanzamiento(1974);
+    ej.setPlataforma("Steam");
+    //ej.setPartidasGanadas(0);
+    //ej.setTiempoJugado(0);
+
+    //---------------------------------------------------
+
     //------------------------------------- agregar algunos juegos a la lista de juegos
 
     video_juego juego1("minecraft", 4, "aventura", "Mojang", 2011, "Steam"); // crear objeto del juego
@@ -53,11 +68,11 @@ int main() // clase main del sistema
             jugar_ahorcado(bcs); // juego del ahorcado
             break;
         case 3:
-            cambiar_categoria();// cambiar categoria del juego
+            cambiar_categoria(); // cambiar categoria del juego
             break;
 
         case 4:
-            plataforma();//organizar la lista y mostrarla por plataforma
+            plataforma(); // organizar la lista y mostrarla por plataforma
             break;
 
         case 5:
