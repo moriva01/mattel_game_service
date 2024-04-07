@@ -15,16 +15,16 @@ int main() // clase main del sistema
 
     //---------------------------------------------------------------------------------------------------------------------------------------- branch deivy
 
-    CuatroEnLinea ej;
+    // CuatroEnLinea ej;
 
-    ej.setNombre("Cuatro En Raya");
-    ej.setCantJugadores(2);
-    ej.setCategoria("Estrategia");
-    ej.setDesarrollador("N/a");
-    ej.setAnioLanzamiento(1974);
-    ej.setPlataforma("Steam");
-    //ej.setPartidasGanadas(0);
-    //ej.setTiempoJugado(0);
+    // ej.setNombre("Cuatro En Raya");
+    //  ej.setCantJugadores(2);
+    //  ej.setCategoria("Estrategia");
+    //   ej.setDesarrollador("N/a");
+    //   ej.setAnioLanzamiento(1974);
+    //   ej.setPlataforma("Steam");
+    // ej.setPartidasGanadas(0);
+    // ej.setTiempoJugado(0);
 
     //---------------------------------------------------
 
@@ -51,9 +51,10 @@ int main() // clase main del sistema
         cout << " -- Bienvenido al sistema de juegos y clasificacion de mattel, que deseas hacer hoy ? ----" << endl;
         cout << "-- 1- Lista de juegos                                      -------------------------------" << endl;
         cout << "-- 2- Jugar ahorcado                                               -----------------------" << endl;
-        cout << "-- 3- categorias de juegos                                         -----------------------" << endl;
-        cout << "-- 4- plataformas de juegos                                        -----------------------" << endl;
-        cout << "-- 5- Salir                                                        -----------------------" << endl;
+        cout << "-- 3- Jugar cuatro en raya                                         -----------------------" << endl;
+        cout << "-- 4- categorias de juegos                                         -----------------------" << endl;
+        cout << "-- 5- plataformas de juegos                                        -----------------------" << endl;
+        cout << "-- 6- Salir                                                        -----------------------" << endl;
         cout << "------------------------------------------------------------------------------------------" << endl;
 
         cin >> eleccion;
@@ -68,14 +69,18 @@ int main() // clase main del sistema
             jugar_ahorcado(bcs); // juego del ahorcado
             break;
         case 3:
-            cambiar_categoria(); // cambiar categoria del juego
+            // jugar_cuatroenraya(ej);
             break;
 
         case 4:
-            plataforma(); // organizar la lista y mostrarla por plataforma
+            cambiar_categoria(); // cambiar categoria del juego
             break;
 
         case 5:
+            plataforma(); // organizar la lista y mostrarla por plataforma
+            break;
+
+        case 6:
             return 0; // salir del sistema
             break;
         default: // si la opcion no es valida

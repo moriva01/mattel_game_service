@@ -16,7 +16,7 @@ void lista_juegos_favoritos()
     cout << "Digite el nombre del video juego: " << endl;
     cin >> nombre;
 
-    for (video_juego p : lista_juegos)
+    for (video_juego p : Juegos_favoritos)
     {
         if (nombre == p.getNombre())
         {
@@ -184,7 +184,7 @@ void ordenarYImprimirNombres(const vector<video_juego> &lista_juegos)
     // Insertar todos los nombres de videojuegos en uno solo
     for (const auto &juego : lista_juegos)
     {
-        todosLosNombres.push_back(p.getNombre());
+        todosLosNombres.push_back(juego.getNombre());
     }
 
     // Ordenar el vector resultante alfabéticamente
@@ -199,7 +199,7 @@ void ordenarYImprimirNombres(const vector<video_juego> &lista_juegos)
 }
 
 // Función para analizar una lista de vectores que contienen la cantidad de jugadores de videojuegos
-void analizarAnios(const vector<video_juego> &lista_juegos)
+/*void analizarAnios(const vector<video_juego> &lista_juegos)
 {
     // Vector para almacenar todas las cantidades de jugadores
     vector<int> todasLasCantidades;
@@ -212,7 +212,7 @@ void analizarAnios(const vector<video_juego> &lista_juegos)
 
     // Ordenar las cantidades de jugadores de manera descendente
     sort(todasLasCantidades.begin(), todasLasCantidades.end(), greater<int>());
-}
+}*/
 
 // Función para analizar una lista de vectores que contienen la cantidad de jugadores de videojuegos
 void analizarAnios(const vector<video_juego> &lista_juegos)
@@ -359,6 +359,7 @@ void mostrar_juegos() // metodo mostrar los juegos que hay en la lista
             break;
 
         case 2: // por si se quiere filtrar por categoria
+            cout << "----------------- por favor seleccione la categoria por la que quiere filtrar la lista: " << endl;
             cout << "1- arcade" << endl
                  << "2- aventura" << endl
                  << "3- puzzle" << endl

@@ -2,9 +2,8 @@
     //---------------------------------------------------------------------------------------------------------------------------------------- branch deivy
 
 #include <ctime>           // libreria para el contador
-#include "video_juego.cpp" //importar la clase padre
 
-class CuatroEnLinea : public video_juego
+class CuatroEnLinea 
 {
 
 private:
@@ -349,7 +348,7 @@ public:
             double tiempoPartida = static_cast<double>(finPartida - inicioPartida) / CLOCKS_PER_SEC;
             tiempojuego += finPartida - inicioPartida;       // toma el tiempo de la partida y lo suma a su total
             tiempoTotalJugado += finPartida - inicioPartida; // toma el tiempo de la partida
-            mostrarResultados();
+          //  mostrarResultados();
             cout << "\n\tQuiere jugar otra vez si(1)/no(0): "; // inicio para ciclo de volver a jugar
             int eleccion;
             cin >> eleccion;
